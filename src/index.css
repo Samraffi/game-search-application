@@ -63,5 +63,5 @@
 
 /* Game poster aspect ratio */
 .game-poster {
-  aspect-ratio: 2/3;
+  aspect-ratio: 16/9;
 }

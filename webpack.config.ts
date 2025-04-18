@@ -55,6 +55,7 @@ const config: webpack.Configuration = {
           loader: "babel-loader"
         }
       },
+      // Для CSS в src
       {
         test: /\.css$/,
         include: path.resolve(__dirname, 'src'),
@@ -64,6 +65,15 @@ const config: webpack.Configuration = {
           'postcss-loader'
         ]
       },
+      // Для CSS в node_modules
+      {
+        test: /\.css$/,
+        include: path.resolve(__dirname, 'node_modules'),
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
     ],
   },
   resolve: {
