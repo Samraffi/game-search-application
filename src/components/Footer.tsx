@@ -5,14 +5,14 @@ const Footer = () => {
         <div className="text-center text-gray-600">
           <p>© {new Date().getFullYear()} Game Search. All rights reserved.</p>
           <p className="mt-2 text-sm">
-            Powered by{' '}
+            Data from {' '}
             <a
-              href="https://github.com/Phalcode/rawg-to-steam-redirect"
+              href="https://rawg.io/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-cyan-600 hover:text-cyan-700"
             >
-              RAWG to Steam Redirect
+              RAWG, the biggest video game database.
             </a>
           </p>
         </div>

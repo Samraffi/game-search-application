@@ -4,10 +4,17 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import webpack from 'webpack';
+import dotenv  from 'dotenv';
 import 'webpack-dev-server';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const env = dotenv.config({ path: path.resolve(__dirname, '.env.local') })?.parsed || {};
+const envKeys: Record<string, string> = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {} as Record<string, string>);
+
 const config: webpack.Configuration = {
   entry: "./src/index.tsx",
   mode: "development",
@@ -18,6 +25,10 @@ const config: webpack.Configuration = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+    }),
+    new webpack.DefinePlugin(envKeys),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
     }),
   ],
   devServer: {

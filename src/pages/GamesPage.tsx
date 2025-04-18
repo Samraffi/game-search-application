@@ -1,24 +1,19 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { GameProps } from "../types/game";
+import { fetchGames } from "../services/fetchGames";
 
 const GamesPage = () => {
   const [games, setGames] = useState<GameProps[]>([]);
 
   useEffect(() => {
-    const apiKey = '833dd8c1d40a4fd1a03174dee01b887b';
-
-    fetch(`https://api.rawg.io/api/games?key=${apiKey}`)
-      .then(response => response.json())
+    fetchGames()
       .then(data => {
-        console.log('Список игр:', data.results);
-
-        setGames(data.results);
+        setGames(data);
       })
       .catch(error => {
         console.error('Ошибка при получении данных:', error);
       });
-
   }, []);
 
 
