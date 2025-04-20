@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import Rating from './Rating';
 import { CardProps } from '../types/game';
 
-const Card = ({ game }: CardProps) => {
+const Card = (game: CardProps) => {
   return (
     <Link
       to={`/games/${game.id}`}

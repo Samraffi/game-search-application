@@ -1,6 +1,6 @@
 import CardSkeleton from "./CardSkeleton";
 
-const LoadingSkeleton = ({ amount }: { amount: number }) => {
+const LoadingGamesSkeleton = ({ amount }: { amount: number }) => {
   return (
     <>
       {Array.from({ length: amount }).map((_, index) => (
@@ -11,4 +11,4 @@ const LoadingSkeleton = ({ amount }: { amount: number }) => {
 };
 
 
-export default LoadingSkeleton;
+export default LoadingGamesSkeleton;

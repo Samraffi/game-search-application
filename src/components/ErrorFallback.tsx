@@ -1,7 +1,4 @@
-interface ErrorFallbackProps {
-  error: Error;
-  resetErrorBoundary: () => void;
-}
+import { ErrorFallbackProps } from "../types/game";
 
 const ErrorFallback = ({ error, resetErrorBoundary }: ErrorFallbackProps) => {
   return (
