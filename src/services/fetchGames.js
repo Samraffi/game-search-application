@@ -1,5 +1,5 @@
-export const fetchGames = async () => {
-  const response = await fetch(`https://api.rawg.io/api/games?key=${process.env.API_KEY}`);
+export const fetchGames = async (url) => {
+  const response = await fetch(`https://api.rawg.io/${url}?key=${process.env.API_KEY}`);
 
   if (!response.ok) {
     throw new Error('Network response was not ok');

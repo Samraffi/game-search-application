@@ -19,6 +19,6 @@ const App = () => {
       <Footer />
     </ErrorBoundary>
   );
-};
+}
 
 export default App;
