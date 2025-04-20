@@ -1,25 +1,21 @@
 import { useEffect, useState } from "react";
+import { useErrorBoundary } from "react-error-boundary";
 import { fetchGames } from "../services/fetchGames";
 import { GameProps } from "../types/game";
 
 export const useGames = () => {
   const [games, setGames] = useState<GameProps[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
+  const { showBoundary } = useErrorBoundary();
 
   useEffect(() => {
     fetchGames()
       .then(data => {
         setGames(data);
-        setLoading(false);
       })
       .catch(error => {
-        setError(error);
-        setLoading(false);
-        console.error('Ошибка при получении данных:', error);
+        showBoundary(error); // Pass the error to the nearest ErrorBoundary
       });
   }, []);
-
   
-  return { games, loading, error };
+  return { games };
 }

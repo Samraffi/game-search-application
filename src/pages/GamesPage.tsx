@@ -1,29 +1,33 @@
-import Card from "../components/Card";
+import { Suspense, lazy } from "react";
+// import Card from "../components/Card";
 import CardSkeleton from "../components/CardSkeleton";
 import { useGames } from "../hooks/useGames";
 
 const GamesPage = () => {
-  const { games, loading, error } = useGames();
+  const { games } = useGames();
 
-  if (loading) {
+  const Card = lazy(() => import('../components/Card'));
+  const LoadingSkeleton = ({ amount }: { amount: number }) => {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {Array.from({ length: 8 }).map((_, index) => (
+      <>
+        {Array.from({ length: amount }).map((_, index) => (
           <CardSkeleton key={index} />
         ))}
-      </div>
+      </>
     );
-  }
-  
-  if (error) {
-    return <div className="text-red-500">Ошибка: {error.message}</div>;
   }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {games.map((game) => (
+      {/* {games.map((game) => (
         <Card key={game.id} game={game} />
-      ))}
+      ))} */}
+      <Suspense fallback={<LoadingSkeleton amount={8} />}>
+        {games.map((game) => (
+          <Card key={game.id} game={game} />
+        ))}
+      </Suspense>
+      {/* {error && <div className="text-red-500">Ошибка: {error.message}</div>} */}
     </div>
   );
 };
