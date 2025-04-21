@@ -1,7 +1,7 @@
 {
-  "name": "game-search-app",
+  "name": "game-zone-app",
   "version": "1.7.0",
-  "description": "A game search application built with React and TypeScript",
+  "description": "A game zone application built with React and TypeScript",
   "main": "./src/index.tsx",
   "scripts": {
     "dev": "webpack-dev-server",
