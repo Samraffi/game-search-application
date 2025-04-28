@@ -1,6 +1,6 @@
 {
   "name": "game-zone-app",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "A game zone application built with React and TypeScript",
   "main": "./src/index.tsx",
   "scripts": {
