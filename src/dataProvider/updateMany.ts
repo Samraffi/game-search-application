@@ -1,6 +1,6 @@
 import { fetchUtils, UpdateManyParams } from 'react-admin';
 
-import { API_URL } from '../constant/api';
+import { API_URL } from '../constants/api';
 
 export const updateMany = async (resource: string, params: UpdateManyParams) => {
   try {

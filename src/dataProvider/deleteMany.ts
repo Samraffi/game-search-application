@@ -1,6 +1,6 @@
 import { fetchUtils, DeleteManyParams } from 'react-admin';
 
-import { API_URL } from '../constant/api';
+import { API_URL } from '../constants/api';
 
 export const deleteMany = async (resource: string, params: DeleteManyParams) => {
   try {

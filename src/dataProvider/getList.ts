@@ -1,6 +1,6 @@
 import { fetchUtils } from 'react-admin';
 import { DataNotFoundError, InvalidResponseError, NetworkError } from './errors';
-import { API_URL } from '../constant/api';
+import { API_URL } from '../constants/api';
 
 export const getList = async (resource: string, params: any) => {
   const { page, perPage } = params.pagination || { page: 1, perPage: 10 };

@@ -1,6 +1,6 @@
 import { fetchUtils, GetManyParams } from 'react-admin';
 
-import { API_URL } from '../constant/api';
+import { API_URL } from '../constants/api';
 
 export const getMany = async (resource: string, params: GetManyParams) => {
   try {

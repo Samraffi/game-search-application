@@ -5,7 +5,7 @@ import {
   CreateResult,
   Identifier,
 } from 'react-admin';
-import { API_URL } from '../constant/api';
+import { API_URL } from '../constants/api';
 
 export const create = async <RecordType extends RaRecord>(
   resource: string,

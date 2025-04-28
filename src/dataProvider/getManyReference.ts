@@ -1,6 +1,6 @@
 import { fetchUtils, GetManyReferenceParams } from 'react-admin';
 
-import { API_URL } from '../constant/api';
+import { API_URL } from '../constants/api';
 
 export const getManyReference = async (resource: string, params: GetManyReferenceParams) => {
   try {
