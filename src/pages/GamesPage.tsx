@@ -6,8 +6,10 @@ import { fetchGames } from '../services/fetchGames';
 import { GameCardProps } from '../types/game';
 
 const GamesPage = () => {
-  const { data: games, error, isLoading } = useSWR('api/games', fetchGames);
+  const { data: games, error, isLoading } = useSWR('games', fetchGames);
 
+  console.log('games', games);
+  console.log('error', error);
   if (error) {
     throw error;
   }

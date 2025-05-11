@@ -10,7 +10,7 @@ export const getList = async (resource: string, params: any) => {
     let response;
     try {
       response = await fetchUtils.fetchJson(
-        `${API_URL}/${resource}?_page=${page}&_limit=${perPage}&_sort=${field}&_order=${order}`
+        `${API_URL}/${resource}`
       );
     } catch (fetchError: any) {
       // Проверяем статус ошибки

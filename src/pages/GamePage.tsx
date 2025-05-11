@@ -7,7 +7,7 @@ import { fetchGame } from "../services/fetchGame";
 
 const GamePage = () => {
   const { id } = useParams<{ id: string }>();
-  const { data: game, error, isLoading } = useSWR(`api/games/${id}`, fetchGame);
+  const { data: game, error, isLoading } = useSWR(`games/${id}`, fetchGame);
 
   if (error) {
     throw error;
